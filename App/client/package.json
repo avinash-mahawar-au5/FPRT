@@ -17,9 +17,12 @@
     "cogo-toast": "^4.2.3",
     "material-ui": "^0.20.2",
     "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-beautiful-dnd": "^13.0.0",
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
+    "react-onclickoutside": "^6.9.0",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
@@ -28,7 +31,10 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "rodal": "^1.8.1"
+    "rodal": "^1.8.1",
+    "styled-components": "^5.1.1",
+    "uuid": "^8.2.0",
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -13,4 +13,3 @@ userSchema.methods.findByUsername = (name, callBack) => {
 const user = mongoose.model("user", userSchema);
 
 module.exports = user;
-

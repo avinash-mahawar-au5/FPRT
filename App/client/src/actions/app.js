@@ -4,15 +4,14 @@ import cogoToast from "cogo-toast";
 const API = new api();
 
 export const RESET_LAST_CONNECTION = "[App] RESET_LAST_CONNECTION",
-  SET_LOGIN_LOADING = "[APP] SET_LOGIN_LOADING",
-  RECONNECT = "[APP] RECONNECT",
-  SIGN_UP = "[APP] SIGN_UP",
-  SIGN_IN = "[APP] SIGN_IN",
-  LOGOUT = "[APP] LOGOUT",
-  ROOMS = "[APP] ROOMS",
-  CREATE_NEW_CHANNEL = "[APP] CREATE_NEW_CHANNEL",
-  SET_CHANNEL_NAME = "[APP] SET_CHANNEL_NAME";
-
+         SET_LOGIN_LOADING = "[APP] SET_LOGIN_LOADING",
+         RECONNECT = "[APP] RECONNECT",
+         SIGN_UP = "[APP] SIGN_UP",
+         SIGN_IN = "[APP] SIGN_IN",
+         LOGOUT = "[APP] LoGOUT";
+ 
+  
+  
 export const setLoginLoad = (value) => {
   return (dispatch) =>
     dispatch({
@@ -22,25 +21,9 @@ export const setLoginLoad = (value) => {
       },
     });
 };
-export const sendChatMessages = (message) => {
-  return (dispatch) =>
-    dispatch({
-      type: "RECIEVED_MESSAGES",
-      payload: message,
-    });
-};
 
-export const setChannelName = (value) => {
-  // console.log("value", value);
-  return (dispatch) => {
-    dispatch({
-      type: "SET_CHANNEL_NAME",
-      payload: {
-        value,
-      },
-    });
-  };
-};
+
+
 export const logout = () => {
   return (dispatch) => {
     localStorage.removeItem("last_session");
@@ -97,24 +80,7 @@ export const signIn = ({ username, password }) => {
   };
 };
 
-export const createNewChannel = (newChannel) => {
-  console.log("channel action", newChannel);
-  return (dispatch) => {
-    API.post("room/create-room", newChannel)
-      .then((res) => {
-        if (res.code == 200) {
-          cogoToast.success(`Channel Created`, {
-            position: "bottom-right",
-          });
-          dispatch({
-            type: "CREATE_NEW_CHANNEL",
-            payload: res,
-          });
-        }
-      })
-      .catch((e) => console.log(e));
-  };
-};
+
 export const reconnect = (last_session) => {
   return (dispatch) => {
     dispatch(setLoginLoad(true));
@@ -134,20 +100,4 @@ export const resetLastConnection = () => {
     });
 };
 
-export function fetchRooms() {
-  return (dispatch) => {
-    let room = fetch(`http://localhost:5000/api/room/get-rooms`);
-    var roomsArr = [];
-    room.then((room) => {
-      room = room.json();
-      room.then((res) => {
-        roomsArr = res;
-        // console.log(roomsArr);
-        dispatch({
-          type: "ROOMS",
-          payload: roomsArr,
-        });
-      });
-    });
-  };
-}
+

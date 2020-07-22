@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "../App.css";
 import "../styles/Home.css";
 const Home = lazy(() => import("../pages/Home"));
-const Profile = lazy(() => import("../pages/Profile"));
+const Boards = lazy(() => import("../pages/Boards"));
 const Auth = lazy(() => import("../components/Auth"));
 
 class AppRouter extends Component {
@@ -17,7 +17,7 @@ class AppRouter extends Component {
             <Auth>
               <Fragment>
                 <div className=" page">
-                  <Route path="/u/:id" component={Profile} />
+                  <Route path="/u/:id" component={Boards} />
                 </div>
               </Fragment>
             </Auth>
