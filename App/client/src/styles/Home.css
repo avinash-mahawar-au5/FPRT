@@ -1,0 +1,16 @@
+.home {
+  height: 100vh;
+}
+
+.home__left {
+  /* overflow-x: hidden;
+  overflow-y: hidden; */
+  background-size: cover;
+  background-image: url("../assets/images/KMK3NG.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home_bg {
+  background-color: bisque;
+}
